@@ -1,0 +1,15 @@
+[Unit]
+Description=PixelFed Horizon Service
+After=network.target
+
+[Service]
+Type=simple
+User=pixelfed
+Group=pixelfed
+WorkingDirectory=/home/pixelfed/pixelfed
+ExecStart=/bin/bash -lc 'php artisan horizon'
+TimeoutSec=15
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
